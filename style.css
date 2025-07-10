@@ -7,6 +7,31 @@ body {
   text-align: center;
 }
 
+#main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+#sidebar {
+  flex: 1;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#blog-section {
+  flex: 2;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+}
+
 #profile-card {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 1.5rem;
@@ -109,30 +134,6 @@ textarea {
   padding: 1rem;
   margin-top: 1rem;
   border-radius: 10px;
-}
-#main-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 2rem;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: auto;
-}
-
-#sidebar {
-  flex: 1;
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-#blog-section {
-  flex: 2;
-  max-width: 700px;
-  display: flex;
-  flex-direction: column;
 }
 
 .current-date {
