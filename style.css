@@ -4,7 +4,11 @@ body {
   padding: 2rem;
   background-color: pink;
   font-family: sans-serif;
-  text-align: center;
+  /* Removed text-align:center to fix layout */
+}
+
+#sidebar, #blog-section {
+  text-align: left; /* Align text left inside columns */
 }
 
 #main-wrapper {
