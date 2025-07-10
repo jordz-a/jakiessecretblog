@@ -18,7 +18,7 @@ body {
 }
 
 .framed-photo {
-  width: 200px;
+  width: 250px;
   height: auto;
   max-width: 80%;
   border: 5px solid deeppink;
