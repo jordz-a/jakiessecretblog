@@ -16,20 +16,25 @@
   </div>
 
   <div id="main-content" style="display: none;">
-    <div id="profile-card">
+    <div id="main-wrapper">
+      <div id="sidebar">
+       <!-- Profile Card -->
+       <div id="profile-card">
   <img src="assets/june2.JPEG" alt="Us 💕" class="framed-photo" />
-  <p class="caption">June 16, 2025💘</p>
+  <p class="current-date" id="today-date"></p>
 
   <audio id="music" autoplay loop controls>
     <source src="assets/NoticeMe.mp3" type="audio/mpeg">
   </audio>
+</div>
 
-<div id="note-section">
-  <h2 class="section-title">💌 Tell me how you feeling 💌</h2>
-  <textarea id="love-note" placeholder="Type something sweet, Ro 💭"></textarea>
-  <br />
-  <button onclick="saveNote()">Send</button>
-  <p id="note-confirmation" style="color:green;"></p>
+  <!-- Sticky Note Panel -->
+   <div id="note-section">
+    <h2 class="section-title">💌 Tell me how you feeling 💌</h2>
+    <textarea id="love-note" placeholder="Type something sweet, Ro 💭"></textarea>
+    <br />
+    <button onclick="saveNote()">Send</button>
+    <p id="note-confirmation" style="color:green;"></p>
 
   <div id="note-display">
     <h3>📝 Last Note from Ro:</h3>
@@ -38,7 +43,7 @@
 </div>
 
 <div id="blog-section">
-  <h2 class="section-title">💞 Memories💞</h2>
+  <h2 class="section-title">💞Memories💞</h2>
 
   <div class="blog-post">
     <img src="assets/Alt Party.JPEG" alt="Cute Moment" class="post-image" />

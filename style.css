@@ -110,3 +110,33 @@ textarea {
   margin-top: 1rem;
   border-radius: 10px;
 }
+#main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+#sidebar {
+  flex: 1;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#blog-section {
+  flex: 2;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+}
+
+.current-date {
+  font-size: 0.9rem;
+  color: #444;
+  margin: 0.5rem 0;
+}
