@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jakie Loves Ro 💜</title>
+
+  <!-- GOOGLE FONTS -->
+ <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- LOGIN SCREEN STYLES --- */
+    body, html {
+      margin: 0; 
+      height: 100%;
+      font-family: "Pacifico", cursive;
+      background: url('assets/background-pic.jpeg') repeat;
+      background-size: 150px;
+      color: #3d2b2b;
+      overflow-x: hidden;
+      padding: 40px;
+    }
+
+    /* Login container */
+    #password-screen {
+      background: rgba(123, 63, 191, 0.85); /* dreamy purple */
+      padding: 40px 50px;
+      border-radius: 25px;
+      box-shadow: 0 0 30px 5px rgba(184, 97, 243, 0.7);
+      text-align: center;
+      width: 320px;
+      font-family: 'Pacifico', cursive;
+      color: #ffe4ff;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+    }
+
+    #password-screen h2 {
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+
+    #password-input {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.3rem;
+      border-radius: 15px;
+      border: none;
+      outline: none;
+      text-align: center;
+      font-family: 'Pacifico', cursive;
+      color: #4b004b;
+      box-shadow: inset 0 0 10px #d4a5ff;
+      margin-bottom: 20px;
+    }
+
+    #password-screen button {
+      background: #d89aff;
+      border: none;
+      padding: 12px 0;
+      width: 100%;
+      font-size: 1.3rem;
+      border-radius: 20px;
+      color: #4b004b;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(191, 90, 255, 0.6);
+      transition: background 0.3s ease;
+      font-family: 'Pacifico', cursive;
+    }
+
+    #password-screen button:hover {
+      background: #bb6fe9;
+    }
+
+    #error-message {
+      color: #ffb6f2;
+      font-family: 'Quicksand', sans-serif;
+      height: 1.2em;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+
+    /* --- BLOG CONTENT STYLES --- */
+    #content {
+      display: none; /* Hidden until password correct */
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1 {
+      font-family: "Pacifico", cursive;
+      font-size: 3em;
+      color: #ff66cc;
+      text-shadow: 2px 2px #000;
+      text-align: center;
+    }
+
+    .polaroid {
+      background: #fff;
+      border: 10px solid #f0f0f0;
+      display: block;
+      padding: 10px;
+      box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+      margin: 0 auto 20px;
+      width: fit-content;
+    }
+
+    .polaroid img {
+      width: 250px;
+      height: auto;
+      display: block;
+    }
+
+    .date {
+      font-size: 0.9em;
+      color: #777;
+      margin-top: 5px;
+      font-family: 'Patrick Hand', cursive;
+      text-align: center;
+    }
+
+    /* --- CUSTOM AUDIO PLAYER --- */
+    .custom-player {
+      width: 300px;
+      background: #d89aff;
+      border-radius: 20px;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 4px 12px rgba(191, 90, 255, 0.6);
+      user-select: none;
+      font-family: 'Pacifico', cursive;
+      margin: 20px auto 40px;
+    }
+
+    #play-pause {
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #4b004b;
+    }
+
+    #progress-container {
+      flex: 1;
+      height: 8px;
+      background: #f0c5f7;
+      border-radius: 10px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    #progress {
+      height: 100%;
+      background: #7b3fbf;
+      width: 0%;
+      border-radius: 10px;
+    }
+
+    /* Scrapbook entries */
+    .entries {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .entry {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px dashed #ff99cc;
+      padding: 20px;
+      border-radius: 15px;
+      transform: rotate(-1.5deg);
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .entry img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    /* Sticky note */
+    .sticky-note {
+      background: #ffff88;
+      border: 1px solid #ddd;
+      padding: 15px;
+      width: 250px;
+      margin: 30px auto;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1em;
+      box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+    }
+
+    .sticky-note textarea {
+      width: 100%;
+      height: 100px;
+      margin-top: 10px;
+      font-family: 'Patrick Hand', cursive;
+    }
+
+    /* Hearts animation */
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 999;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      clip-path:url(assets/heart-shape.svg)
+      opacity: 0.7;
+      animation: float 4s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-100vh) rotate(360deg); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <div id="password-screen">
+    <h2>Welcome to our secret little world 💜<br>Type your magic word to enter:</h2>
+    <input type="password" id="password-input" placeholder="Your secret password" />
+    <button id="enter-btn">Enter</button>
+    <div id="error-message"></div>
+  </div>
+
+  <!-- MAIN BLOG CONTENT (hidden until login) -->
+  <div id="content">
+    <h1>Jakie Loves Ro 💜</h1>
+
+    <!-- Polaroid Image (CHANGE 'image1.jpg' to your photo) -->
+    <div class="polaroid">
+      <img src="assets/june-1.JPEG"/>
+      <div class="date">June 16th, 2025</div>
+    </div>
+
+    <!-- CUSTOM MUSIC PLAYER -->
+    <div class="custom-player">
+      <button id="play-pause">▶️</button>
+      <div id="progress-container">
+        <div id="progress"></div>
+      </div>
+    </div>
+
+    <audio id="audio" src="assets/NoticeMe.mp3"></audio>
+
+    <!-- Scrapbook Entries -->
+    <div class="entries">
+      <div class="entry">
+        <h3>Love Note #1</h3>
+        <p>You were laughing in your sleep again last night. I didn’t tell you, but it made me feel like the safest girl in the universe.</p>
+        <img src="assets/june2.JPEG"/>
+      </div>
+      <!-- Add more entries here by copying the .entry div -->
+    </div>
+
+    <!-- Sticky Note where he can leave a message -->
+    <div class="sticky-note">
+      <p>Leave me a lil note 💌</p>
+      <textarea id="note"></textarea>
+    </div>
+  </div>
+
+  <!-- Floating Hearts -->
+  <div class="hearts"></div>
+
+  <script>
+    // Password check
+    const secretPassword = "waffles"; // Change this to your password!
+    const passwordInput = document.getElementById('password-input');
+    const enterBtn = document.getElementById('enter-btn');
+    const errorMessage = document.getElementById('error-message');
+    const passwordScreen = document.getElementById('password-screen');
+    const content = document.getElementById('content');
+
+    function checkPassword() {
+      if(passwordInput.value === secretPassword) {
+        passwordScreen.style.display = 'none';
+        content.style.display = 'block';
+      } else {
+        errorMessage.textContent = "Oops! That's not the magic word, try again 💖";
+      }
+    }
+
+    enterBtn.addEventListener('click', checkPassword);
+
+    passwordInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        checkPassword();
+      }
+    });
+
+    // Floating hearts animation
+    const heartsContainer = document.querySelector('.hearts');
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = '100vh';
+      heart.style.animationDuration = 3 + Math.random() * 2 + 's';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heartsContainer.removeChild(heart), 5000);
+    }, 300);
+
+    // Sticky note saving for 24 hours
+    const textarea = document.getElementById('note');
+    const savedNote = localStorage.getItem('ro_note');
+    const savedTime = localStorage.getItem('ro_note_time');
+    const now = Date.now();
+
+    if (savedNote && savedTime && now - savedTime < 24 * 60 * 60 * 1000) {
+      textarea.value = savedNote;
+    } else {
+      localStorage.removeItem('ro_note');
+      localStorage.removeItem('ro_note_time');
+    }
+
+    textarea.addEventListener('input', () => {
+      localStorage.setItem('ro_note', textarea.value);
+      localStorage.setItem('ro_note_time', Date.now());
+    });
+
+    // Custom audio player functionality
+    const audio = document.getElementById('audio');
+    const playPauseBtn = document.getElementById('play-pause');
+    const progress = document.getElementById('progress');
+    const progressContainer = document.getElementById('progress-container');
+
+    playPauseBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        playPauseBtn.textContent = '⏸️';
+      } else {
+        audio.pause();
+        playPauseBtn.textContent = '▶️';
+      }
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      const percent = (audio.currentTime / audio.duration) * 100;
+      progress.style.width = percent + '%';
+    });
+
+    progressContainer.addEventListener('click', (e) => {
+      const rect = progressContainer.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const newTime = (clickX / rect.width) * audio.duration;
+      audio.currentTime = newTime;
+    });
+  </script>
+
+</body>
+</html>
