@@ -1,25 +1,6 @@
 body {
-  background: url('assets/bg.gif') repeat;
-  font-family: 'Comic Neue', cursive;
-  color: hotpink;
+  background-color: pink;
+  font-family: sans-serif;
   text-align: center;
-  cursor: url('assets/heart.png'), auto;
-}
-
-#login-screen, #main-content {
   padding: 2rem;
-  margin: auto;
-  max-width: 500px;
-  background: rgba(255, 255, 255, 0.7);
-  border: 4px dashed hotpink;
-  border-radius: 20px;
-  box-shadow: 0 0 20px violet;
-}
-
-input {
-  padding: 0.6rem;
-  border: 2px dotted deeppink;
-  font-size: 1rem;
-  margin-top: 1rem;
-  border-radius: 10px;
 }
