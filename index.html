@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jakie Hearts Ro 💖</title>
+  <link rel="icon" type="image/gif" href="assets/favicon.gif">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -22,6 +23,30 @@
   <audio id="music" autoplay loop controls>
     <source src="assets/NoticeMe.mp3" type="audio/mpeg">
   </audio>
+
+<div id="note-section">
+  <h2 class="section-title">💌 Tell me how you feeling 💌</h2>
+  <textarea id="love-note" placeholder="Type something sweet, Ro 💭"></textarea>
+  <br />
+  <button onclick="saveNote()">Send</button>
+  <p id="note-confirmation" style="color:green;"></p>
+
+  <div id="note-display">
+    <h3>📝 Last Note from Ro:</h3>
+    <p id="saved-note">Nothing yet... 😢</p>
+  </div>
+</div>
+
+<div id="blog-section">
+  <h2 class="section-title">💞 Memories💞</h2>
+
+  <div class="blog-post">
+    <img src="assets/Alt Party.JPEG" alt="Cute Moment" class="post-image" />
+    <p class="post-caption">Our first party together.💫 Here's to hoping we have more❤️</p>
+    <p class="post-tags">#lateNightVibes #altparty #kewlkidz </p>
+    <p class="post-date">Posted July 10, 2025</p>
+  </div>
+  <!-- You can copy and paste this block to add more posts -->
   </div>
 
   <script src="script.js" defer></script>
